@@ -1,5 +1,11 @@
 - hosts: localhost
   tasks:
-    - name: upgrade all packages
+    - name: Upgrade all packages
       become: yes
       yum: name=* state=latest
+
+    - name: Remove Rhythmbox
+      become: yes
+      package:
+        name: rhythmbox
+        state: absent
